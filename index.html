@@ -1,0 +1,471 @@
+# aistg
+For sale：aistg.cn
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AISTG.CN - AI测试与MLOps平台</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        /* 导航栏 */
+        .navbar {
+            background: rgba(255,255,255,0.95);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .nav-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .nav-links a {
+            margin-left: 2rem;
+            text-decoration: none;
+            color: #333;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #667eea;
+        }
+        
+        /* 头部展示区 */
+        .hero {
+            padding: 8rem 5% 4rem;
+            text-align: center;
+            color: white;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        
+        .domain-name {
+            font-size: 5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease;
+        }
+        
+        .domain-tagline {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            animation: fadeInUp 1.2s ease;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            animation: fadeInUp 1.4s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        
+        /* 含义解释区 */
+        .section {
+            padding: 4rem 5%;
+            max-width: 1800px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+        
+        /* 单排宽屏布局 */
+        .meanings-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            width: 100%;
+        }
+        
+        .meaning-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .meaning-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .meaning-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .meaning-title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #667eea;
+        }
+        
+        .meaning-desc {
+            color: #666;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        /* 应用场景区 */
+        .scenarios {
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 2rem auto;
+            max-width: 1700px;
+        }
+        
+        .scenario-list {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            width: 100%;
+        }
+        
+        .scenario-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .scenario-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .scenario-name {
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        /* 价值优势区 */
+        .advantages {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+            width: 100%;
+        }
+        
+        .advantage-item {
+            text-align: center;
+            padding: 2.5rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .advantage-number {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+        
+        .advantage-text {
+            font-weight: bold;
+            color: #333;
+            font-size: 1.2rem;
+        }
+        
+        /* 联系我们区 */
+        .contact {
+            background: white;
+            padding: 4rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .contact-info {
+            margin: 2rem 0;
+            display: flex;
+            justify-content: space-around;
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+        
+        .contact-item {
+            font-size: 1.3rem;
+        }
+        
+        .contact-label {
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        /* 页脚 */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: white;
+            opacity: 0.9;
+        }
+        
+        /* 动画 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 响应式：平板下切换为2列，手机端自动切换为单列 */
+        @media (max-width: 1200px) {
+            .meanings-grid, .scenario-list, .advantages {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .meanings-grid, .scenario-list, .advantages {
+                grid-template-columns: 1fr;
+            }
+            
+            .domain-name {
+                font-size: 3rem;
+            }
+            
+            .domain-tagline {
+                font-size: 1.3rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">AISTG.CN</div>
+            <div class="nav-links">
+                <a href="#meanings">含义解读</a>
+                <a href="#scenarios">应用场景</a>
+                <a href="#advantages">价值优势</a>
+                <a href="#contact">联系我们</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 头部展示区 -->
+    <section class="hero">
+        <div class="domain-name">AISTG.CN</div>
+<div class="domain-tagline">STG 核心解决方案体系 · 赋能智能时代的四重保障</div>
+        <div class="domain-tagline">AI测试 · MLOps · 技术战略 · 智能验证</div>
+        <a href="#contact" class="cta-button">立即咨询</a>
+    </section>
+
+    <!-- 含义解释区 -->
+    <section class="section" id="meanings">
+        <h2 class="section-title">STG 多重专业释义</h2>
+        <div class="meanings-grid">
+            <div class="meaning-card">
+                <div class="meaning-icon">🧪</div>
+                <div class="meaning-title">System Test Generation</div>
+                <div class="meaning-desc">AI驱动的自动化测试用例生成，覆盖软件质量保障、DevOps、大模型验证等核心场景</div>
+                <div class="meaning-desc"><font color="#FF0000" face="汉仪中黑 197" size="2">“让每一次发布都充满信心，将人力从海量用例设计中解放出来。”</font></div>
+            </div>
+            <div class="meaning-card">
+                <div class="meaning-icon">🚀</div>
+                <div class="meaning-title">Staging Environment</div>
+                <div class="meaning-desc">AI模型预发布/灰度发布环境管理，MLOps标准流程核心环节</div>
+<font color="#FF0000" face="汉仪中黑 197" size="2">“确保AI模型平稳、可控、可观测的交付到生产环境，降低上线风险。”</font>
+            </div>
+            <div class="meaning-card">
+                <div class="meaning-icon">🎯</div>
+                <div class="meaning-title">Strategic Technology Group</div>
+                <div class="meaning-desc">企业AI战略技术部门/技术孵化平台，负责前沿技术预研与AI转型规划</div>
+<font color="#FF0000" face="汉仪中黑 197" size="2">“为您构建专属的AI技术雷达与转型引擎，驾驭技术变革。”</font>
+            </div>
+            <div class="meaning-card">
+                <div class="meaning-icon">🔍</div>
+                <div class="meaning-title">Spurious Token Game</div>
+                <div class="meaning-desc">大模型因果推理能力评测基准，AI可解释性与安全测试工具</div>
+<font color="#FF0000" face="汉仪中黑 197" size="2">“穿透大模型的黑盒，精准评估与提升其推理的可靠性与安全性。”</font>
+            </div>
+        </div>
+    </section>
+
+    <!-- 应用场景区 -->
+    <section class="section" id="scenarios">
+        <h2 class="section-title">核心应用场景</h2>
+        <div class="scenarios">
+            <div class="scenario-list">
+                <div class="scenario-item">
+                    <div class="scenario-icon">🤖</div>
+                    <div class="scenario-name">AI测试平台</div>
+                    <p>大模型自动生成测试用例与脚本</p>
+                </div>
+                <div class="scenario-item">
+                    <div class="scenario-icon">⚙️</div>
+                    <div class="scenario-name">MLOps平台</div>
+                    <p>模型部署、监控与服务化管理</p>
+                </div>
+                <div class="scenario-item">
+                    <div class="scenario-icon">📊</div>
+                    <div class="scenario-name">大模型评测</div>
+                    <p>AI模型能力评估与基准测试</p>
+                </div>
+                <div class="scenario-item">
+                    <div class="scenario-icon">🏢</div>
+                    <div class="scenario-name">企业AI战略</div>
+                    <p>技术规划与AI转型咨询服务</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 价值优势区 -->
+    <section class="section" id="advantages">
+        <h2 class="section-title">域名核心价值</h2>
+        <div class="advantages">
+            <div class="advantage-item">
+                <div class="advantage-number">7</div>
+                <div class="advantage-text">字符长度</div>
+                <p>简洁易记，输入成本低</p>
+            </div>
+            <div class="advantage-item">
+                <div class="advantage-number">4</div>
+                <div class="advantage-text">专业释义</div>
+                <p>覆盖测试/MLOps/战略/评测</p>
+            </div>
+            <div class="advantage-item">
+                <div class="advantage-number">80亿+</div>
+                <div class="advantage-text">市场规模</div>
+                <p>2026年AI测试赛道空间</p>
+            </div>
+            <div class="advantage-item">
+                <div class="advantage-number">.CN</div>
+                <div class="advantage-text">顶级后缀</div>
+                <p>国内认可度高，权威性强</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们区 -->
+    <section class="section" id="contact">
+        <div class="contact">
+            <h2 class="section-title" style="color: #333; text-shadow: none;">联系我们</h2>
+            <p style="font-size: 1.2rem; color: #666;">如果您对这个优质AI域名感兴趣，欢迎随时联系</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span class="contact-label">邮箱：</span>
+                    <span>ai@altoai.cn</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">微信：</span>
+                    <span>altoai</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">QQ：</span>
+                    <span>31391890</span>
+                </div>
+            </div>
+            <a href="mailto:ai@altoai.cn" class="cta-button" style="background: #667eea; color: white;">发送邮件咨询</a>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <p>© 2026 ALTOAI.CN 版权所有 | AI测试与MLOps平台域名</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">本页面仅用于域名展示，不构成任何商业承诺</p>
+    </footer>
+
+    <script>
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255,255,255,0.98)';
+                navbar.style.boxShadow = '0 2px 15px rgba(0,0,0,0.15)';
+            } else {
+                navbar.style.background = 'rgba(255,255,255,0.95)';
+                navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            }
+        });
+    </script>
+</body></body><body oncontextmenu="return false" onselectstart="return false" ondragstart="return false" onbeforecopy="return false" oncopy=document.selection.empty() onselect=document.selection.empty()>
+</html>
